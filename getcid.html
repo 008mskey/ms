@@ -25,10 +25,68 @@
     background-color: #F5F5F5;
     border: 1px solid #C9C9C9;
     color: #C9C9C9;
-}
+    }
+    .header{
+        width: 100%;
+        height: 0px;      
+        background: deepskyblue;
+        position: fixed;
+        top:0;
+        z-index: 12;
+    }
+/*弹窗*/    
+   body{
+    margin: 0px;
+   }
+   .zhezhao{
+    position: fixed;
+    left: 0px;
+    top: 40px;
+    
+    width: 100%;
+    height: 90%;
+    opacity: 1;
+
+   }
+   .tankuang{
+    position: relative;
+    background: #DCDCDC;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    margin: 5% auto;
+   }
+   #header{
+    height: 40px;
+   }
+   #header-right{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    background: red;
+    color: #fff;
+    right: 5px;
+    top: 5px;
+    text-align: center;
+   }
+ /*浮窗*/   
+    .ycfc{
+        position:fixed;
+        right:10px;bottom:20px;        
+        font-size:80%;
+        text-decoration:none;
+        background: #3497fd;
+        1width: 90px;
+        2height: 45px; 
+        border-radius: 8px;
+        
+    }    
   </style>
 </head>
 <body style="background: #f5f7fa no-repeat center top / 100% auto;">
+<!--开始..以下<div class="header">固定菜单不随上下移动-->
+<div class="header">
  <div class="layui-nav">
      <div class="layui-container">
        <a href="./">
@@ -42,6 +100,8 @@
      </ul>
      </div>
  </div>
+ </div><!--结束..以上<div class="header">固定菜单不随上下移动-->
+<br><br><br>    
  <div class="layui-container fly-marginTop">
    <div class="layui-row layui-col-space10">
        <div class="layui-col-sm6 layui-col-md6layui-col-xs12">
@@ -98,8 +158,54 @@
           </div>
         </div> 
       </div>
+
+ <!--添加提取文字-->
+ <div class="ycfc">
+  <a type="button" onclick="dianwo()">文字提取</a><br />
+</div>  
+<div class="zhezhao" id='zhezhao'>
+   <div class="tankuang">
+    <div id="header">
+<span>
+ <div class="zhezhao">
+   <div class="tankuang">
+       <iframe src="https://web.baimiaoapp.com/" frameBorder="0" width="100%" scrolling="no" height="100%" style="border:1px red solid;">
+      </iframe>
+   </div>
+  </div>
+ </span>
+     <div id="header-right" onclick="hidder()">x</div>
+    </div>
+   </div>
+ </div>
+<!-- 提取文字弹窗JS -->
+  <script type="text/javascript">
+   document.getElementById('zhezhao').style.display="none";
+   function dianwo(){
+    document.getElementById('zhezhao').style.display="";
+   }
+   function hidder(){
+    document.getElementById('zhezhao').style.display="none";
+   }
+  </script>  
+  
+<!--添加自动分隔符窗口-->  
+<script> 
+function format (num) {  
+    var reg=/\d{1,6}(?=(\d{6})+$)/g;//表示前面有1~3个数字，后面的至少由一组3个数字结尾 
+    return (num + '').replace(reg, '$&-');//$&表示后面加千分位逗号  
+}
+</script>
+  <div class="card">
+    <textarea onchange="this.value=format(this.value)" placeholder="请在此输入确定ID自动添加分隔符..." style="width: 100%; height: 90px;"></textarea>
+   </div>
+  
+<!--添加获取ID窗口-->
+    
+<iframe src="https://webact.185.hk/" frameBorder="0" width="100%" scrolling="no" height="500"></iframe>
    </div>
 </div>
+
 <script type="text/javascript">
 function copyUrl2()
 {

@@ -22,16 +22,77 @@
     background-color: #F5F5F5;
     border: 1px solid #C9C9C9;
     color: #C9C9C9;
-}
-.layui-nav{
+    }
+    .layui-nav{
          padding: 0;
      }
-.layui-card{
+    .layui-card{
     height: 280px;
-}
+    }
+    .header{
+        width: 100%;
+        height: 0px;      
+        background: deepskyblue;
+        position: fixed;
+        top:0;
+        z-index: 12;
+    }
+ 
+/*弹窗*/    
+   body{
+    margin: 0px;
+   }
+   .zhezhao{
+    position: fixed;
+    left: 0px;
+    top: 40px;
+    
+    width: 100%;
+    height: 90%;
+    opacity: 1;
+
+   }
+   .tankuang{
+    position: relative;
+    background: #DCDCDC;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    margin: 5% auto;
+   }
+   #header{
+    height: 40px;
+   }
+   #header-right{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    background: red;
+    color: #fff;
+    right: 5px;
+    top: 5px;
+    text-align: center;
+   }
+ /*浮窗*/   
+    .ycfc{
+        position:fixed;
+        right:10px;bottom:20px;        
+        font-size:80%;
+        text-decoration:none;
+        background: #3497fd;
+        1width: 90px;
+        2height: 45px; 
+        border-radius: 8px;
+        
+    }         
+    
+    
   </style>
 </head>
 <body style="background: #f5f7fa no-repeat center top / 100% auto;">
+<!--开始..以下<div class="header">固定菜单不随上下移动-->
+<div class="header">
  <div class="layui-nav">
      <div class="layui-container">
        <a href="./">
@@ -41,10 +102,15 @@
           <li class="layui-nav-item layui-this"><a href="./">检测密钥</a></li>
           <li class="layui-nav-item "><a href="./getcid.html">获取确认ID</a></li>
           <li class="layui-nav-item"><a href="./html/aihao.html">密钥分享</a></li>
-          <!--<li class="layui-nav-item "><a href="https://www.zhihupe.com/">智狐重装系统助手</a></li>-->
+
      </ul>
-     </div>
- </div>
+   </div>
+ </div> 
+ </div><!--结束..以上<div class="header">固定菜单不随上下移动-->
+<br><br><br>
+  
+   
+  
  <div class="layui-container fly-marginTop">
    <div class="layui-row layui-col-space10">
        <div class="layui-col-sm6 layui-col-md6 layui-col-xs12">
@@ -108,8 +174,71 @@
           </div>
         </div> 
       </div>
-   </div>
+	  
+ <!--添加提取文字-->
+ <div class="ycfc">
+  <a type="button" onclick="dianwo()">文字提取</a><br />
+  <!--<a type="button" onclick="cde()">菜单二</a><br />-->
 </div>
+<!--文字提取-->     
+<div class="zhezhao" id='zhezhao'>
+   <div class="tankuang">
+    <div id="header">
+<span>
+ <div class="zhezhao">
+   <div class="tankuang">
+       <iframe src="https://web.baimiaoapp.com/" frameBorder="0" width="100%" scrolling="no" height="100%" style="border:1px red solid;">
+      </iframe>
+   </div>
+  </div>
+ </span>
+     <div id="header-right" onclick="hidder()">x</div>
+    </div>
+   </div>
+ </div>
+<!--菜单二
+<div class="zhezhao" id='ida'>
+   <div class="tankuang">
+    <div id="idb">
+<span>
+ <div class="zhezhao">
+   <div class="tankuang">
+       <iframe src="https://c.runoob.com" frameBorder="0" width="100%" scrolling="no" height="100%" style="border:1px red solid;">
+      </iframe>
+   </div>
+  </div>
+ </span>
+     <div id="header-right" onclick="idb()">x</div>
+    </div>
+   </div>
+ </div>     
+ -->     
+<!-- 提取文字/菜单一弹窗JS -->
+  <script type="text/javascript">
+   document.getElementById('zhezhao').style.display="none";
+   function dianwo(){
+    document.getElementById('zhezhao').style.display="";
+   }
+   function hidder(){
+    document.getElementById('zhezhao').style.display="none";
+   }
+   // 提取文字/菜单二弹窗JS
+   document.getElementById('ida').style.display="none";
+   function cde(){
+    document.getElementById('ida').style.display="";
+   }
+   function idb(){
+    document.getElementById('ida').style.display="none";
+   }    
+  </script>
+         
+
+<!--添加检测窗口-->
+
+<iframe src="https://webact.185.hk/mskey.php" frameBorder="0" width="100%" scrolling="no" height="500"></iframe>
+   </div>
+  </div>
+
 <script type="text/javascript">
 function copyUrl2()
 {
@@ -125,6 +254,7 @@ alert("已复制好，可贴粘。");
 <!-- 注意：如果你直接复制所有代码到本地，上述 JS 路径需要改成你本地的 -->
 <script>
 </script>
+
 
 </body>
 </html>
